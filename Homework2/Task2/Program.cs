@@ -6,6 +6,11 @@ Console.Clear();
 Console.Write("Введите число:");
 int n = Convert.ToInt32(Console.ReadLine());
 
+while (n > 1000)
+{
+    n = n / 10;
+}
+
 if (n >= 100 && n < 1000)
 {
     int n1 = n % 100;
@@ -13,6 +18,7 @@ if (n >= 100 && n < 1000)
     int n3 = n % 10;
     Console.WriteLine($"{n3}");
 }
+
 
 else 
 Console.WriteLine("Третьей цифры нет");
