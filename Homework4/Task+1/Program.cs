@@ -27,19 +27,21 @@ array[i] = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine($"[{string.Join(", ", array)}]");
 
-Console.Write("Введите число на которое надо сделать сдвиг: ");
-int m = Convert.ToInt32(Console.ReadLine());
-int tmp = array[n - 1];
+// Console.Write("Введите число на которое надо сделать сдвиг: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// int tmp = array[n - 1];
 
-for (int i = n -1; i > 0; i--)
-{
-    array[i] = array[i - 1];
-    array[0] = tmp;
+// for (int i = n -1; i > 0; i--)
+// {
+//     array[i] = array[i - 1];
+//     array[0] = tmp;
+
+
     // for (int j = 0; j < n-1; j++)
     // {
     //     array[j] = array[j + 1];
     //     array[j + 1] = tmp;
     // }
-}
+// }
 
 Console.WriteLine($"[{string.Join(", ", array)}]");
