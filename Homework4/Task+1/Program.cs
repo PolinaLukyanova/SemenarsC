@@ -14,34 +14,25 @@
 -3      */
 
 Console.Clear();
-Console.Write("Введите колличество элементов в массива: ");
 int n = Convert.ToInt32(Console.ReadLine());
-int[] array = new int[n]; 
-
-for ( int i = 0; i < n; i++)
+int[] numbers = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
+int k = Convert.ToInt32(Console.ReadLine());
+int[] result = new int[numbers.Length];
+k %= n;
+if (k > 0)
 {
-Console.Write($"Введите {i + 1}-й элемент массива: ");
-array[i] = Convert.ToInt32(Console.ReadLine());
-
+for (int i = 0; i < k; i++)
+result[i] = numbers[numbers.Length - k + i];
+for (int i = 0; i < numbers.Length - k; i++)
+result[k + i] = numbers[i];
+Console.WriteLine($"{string.Join(" ", result)}");
 }
-
-Console.WriteLine($"[{string.Join(", ", array)}]");
-
-// Console.Write("Введите число на которое надо сделать сдвиг: ");
-// int m = Convert.ToInt32(Console.ReadLine());
-// int tmp = array[n - 1];
-
-// for (int i = n -1; i > 0; i--)
-// {
-//     array[i] = array[i - 1];
-//     array[0] = tmp;
-
-
-    // for (int j = 0; j < n-1; j++)
-    // {
-    //     array[j] = array[j + 1];
-    //     array[j + 1] = tmp;
-    // }
-// }
-
-Console.WriteLine($"[{string.Join(", ", array)}]");
+else
+{
+k = k * (-1);
+for (int i = 0; i < k; i++)
+result[numbers.Length - k + i] = numbers[i];
+for (int i = 0; i < numbers.Length - k; i++)
+result[i] = numbers[k + i];
+Console.WriteLine($"{string.Join(" ", result)}");
+}
