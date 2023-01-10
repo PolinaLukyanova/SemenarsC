@@ -8,7 +8,7 @@
 27(0,0,1) 90(0,1,1)
 26(1,0,1) 55(1,1,1)*/
 
-void InputMatrix(int[,, ] matrix)
+void InputMatrix(int[,,] matrix)
 {
     int numbers = 10;
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -40,6 +40,11 @@ void PrintMatrix(int[,,] matrix)
 Console.Clear();
 Console.Write($"Введите размер : ");
 int[] size = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
+while ( size[0] * size[1] * size[2] > 90)
+{
+    Console.Write($"Вы ошиблись! \n  Введите размер: ");
+    size = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
+}
 int[,,] matrix = new int[size[0], size[1], size[2]];
 InputMatrix(matrix);
 PrintMatrix(matrix);
